@@ -31,6 +31,7 @@ body.help { user-select: text; }
 .help-foot p { margin: 0 0 10px; font-size: 13px; color: var(--dim); }
 .help-foot .c-links { justify-content: flex-start; }
 .help-foot .c-link { flex: 0 0 auto; padding: 6px 14px; }
+.help-foot .help-lic { font-size: 12px; opacity: .8; }
 
 .ver-pill { padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .08); color: var(--dim); font-size: 12px; font-weight: 600; }
 body.embedded .help-bar { padding-right: 52px; }

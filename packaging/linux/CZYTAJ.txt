@@ -1,0 +1,78 @@
+3MF Purifier 1.0.1
+==================
+
+Uruchomienie (Linux, x64 albo arm64)
+- Rozpakuj archiwum, otwórz terminal w rozpakowanym folderze i uruchom ./install.sh.
+  Skopiuje program do ~/.local/bin i doda "3MF Purifier" do menu aplikacji.
+  Nie potrzeba sudo. ./uninstall.sh to cofa.
+- Żeby wypróbować program bez instalacji, uruchom ./3mf-purifier w tym samym folderze.
+- Aplikacja potrzebuje WebKitGTK 4.1, który GNOME, KDE i większość pulpitów już ma.
+  Jeśli go brakuje, zainstaluj libwebkit2gtk-4.1-0 (Ubuntu, Debian, Mint),
+  webkit2gtk4.1 (Fedora) albo webkit2gtk-4.1 (Arch, Manjaro, Garuda).
+- Ustawienia zapisują się w ~/.local/share, a nie obok programu.
+
+Język: przełącznik EN / PL / DE / FR / ES w prawym górnym rogu. Pierwsze uruchomienie po angielsku,
+potem ostatnio wybrany język. Każde uruchomienie zaczyna się w trybie "Z filamentami".
+Pomoc: przycisk POMOC obok logo otwiera okno z pełną instrukcją.
+
+Dodawanie plików
+- przeciągnij pliki .3mf albo folder do okna,
+- albo użyj przycisków "Pliki" / "Folder",
+- albo otwórz je przez 3MF Purifier w menedżerze plików (po ./install.sh).
+
+Tryby (przyciski na górze)
+- Bez filamentów: kopia bez żadnych ustawień slicera.
+- Z filamentami: dodatkowo kolory i typy filamentów w formacie Publish 3MF.
+  OrcaSlicer 2.5+ nałoży je na sloty klienta i zostawi mu jego drukarkę i proces.
+  Snapmaker Orca, starsze Orca, Bambu Studio i inne slicery wczytają samą geometrię.
+- Uniwersalny: zwykły 3MF dla PrusaSlicera, Cury i innych slicerów, które nie otwierają
+  projektów z OrcaSlicera i Bambu Studio. Malowanie kolorem i extrudery części są zapisane
+  tak, jak czyta je PrusaSlicer. Modyfikatory, części ujemne i blokery podpór są pomijane.
+  Projekt z kilkoma płytami daje plik na każdą płytę (przełącznik "Osobny plik dla każdej płyty").
+
+Wynik: folder "Cleaned_[nazwa modelu]" obok pliku, np. Kafel.3mf ->
+Cleaned_Kafel/Kafel.3mf.
+Pliki przeciągnięte do okna trafiają do folderu pokazanego pod przyciskiem
+"Wyczyść pliki" (domyślnie Dokumenty/3MF Purifier, "Zmień" wybiera inny),
+bo system nie przekazuje aplikacji, skąd pochodzi przeciągnięty plik. Tryby Bez filamentów
+i Z filamentami zapisują ten sam plik, więc liczy się ostatnie czyszczenie. Tryb uniwersalny
+zapisuje obok Kafel_universal.3mf (przy kilku płytach Kafel_plate1_universal.3mf itd.).
+Po włączeniu "Zapisz też wersję Uniwersalną" tryby dla Orki zapisują oba pliki naraz.
+
+Usuwane: profil drukarki i procesu, dołączone presety, G-code i dane z cięcia,
+zmiany koloru na wysokości, zmienna wysokość warstwy, profil PrusaSlicera,
+ustawienia per obiekt (chyba że włączysz "Zachowaj ustawienia per obiekt"), pełne ścieżki
+plików źródłowych (zostaje sama nazwa pliku), dane autora profilu druku z MakerWorld.
+Zostaje bez zmian: geometria, nazwy, części, modyfikatory (poza trybem uniwersalnym), extrudery,
+malowanie kolorem, układ na płycie, miniatury, tytuł, autor i licencja modelu.
+Oryginały nie są zmieniane.
+
+Autor i licencja (przełącznik nad przyciskiem Wyczyść pliki)
+- zapisuje autora, licencję i prawa autorskie w każdym czyszczonym pliku,
+- OrcaSlicer i Bambu Studio pokazują je w informacjach o projekcie,
+- puste pole zostawia wartość z pliku; używaj tylko dla własnych modeli.
+
+Własna miniatura
+- zaznacz plik i kliknij "Wybierz obraz…" w karcie Miniatura (albo upuść obraz na okno),
+- PNG, JPG, WebP, BMP, GIF lub AVIF; zapisywane jako kwadratowe PNG 512x512 i 128x128,
+- "Wypełnij" przycina obraz do kwadratu, "Dopasuj" pokazuje cały obraz z przezroczystymi marginesami,
+- "Użyj dla wszystkich" ustawia ten sam obraz wszystkim plikom na liście,
+- "Z widoku 3D" renderuje model pod kątem z podglądu, wykadrowany, na jasnym tle,
+- staje się okładką 3MF w OrcaSlicerze i Bambu Studio,
+  a OrcaSlicer zachowuje ją przy ponownym zapisie projektu; podglądy płyt się nie zmieniają.
+
+Podgląd 3D
+- lewy przycisk myszy: obrót, prawy: przesuwanie, kółko: zoom,
+- w trybach "Bez filamentów" i "Uniwersalny" sloty są w odcieniach szarości (kolory nada slicer klienta),
+- po czyszczeniu przełącznik "Źródło / Wynik" pokazuje plik wynikowy,
+- przycisk z siatką pokazuje trójkąty, strzałka przywraca widok.
+
+Licencja: GNU GPL v3.0 z dodatkowymi warunkami, zob. LICENSE.txt i NOTICE.txt.
+Kod źródłowy: https://github.com/3DHexes/3mf-purifier
+Licencje użytych bibliotek: THIRD-PARTY-LICENSES.txt.
+
+3DHexes
+- MyMiniFactory: https://www.myminifactory.com/profile/3DHexes
+- Discord: https://discord.gg/MfkejWQZ4D
+- Kickstarter: https://www.kickstarter.com/profile/3dhexes/created
+- Ko-fi: https://ko-fi.com/3dhexes

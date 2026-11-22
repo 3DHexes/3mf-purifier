@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1
+
+- Help window shows the license (GNU GPL v3.0) and a link to the source code.
+- Clearer help texts: names are kept in Universal mode too; fixes in the Polish help.
+- Download packages include LICENSE.txt and NOTICE.txt.
+- Package texts are now kept in the packaging/ folder.
+
 ## 1.0.0 (2026-11-22)
 
 First public release.

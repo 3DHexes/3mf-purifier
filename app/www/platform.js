@@ -10,6 +10,7 @@ const LINKS = {
   discord: 'https://discord.gg/MfkejWQZ4D',
   kickstarter: 'https://www.kickstarter.com/profile/3dhexes/created',
   kofi: 'https://ko-fi.com/3dhexes',
+  repo: 'https://github.com/3DHexes/3mf-purifier',
 };
 const DIALOG = {
   en: { files: 'Select 3MF files', filter: '3MF files', folder: 'Select a folder with 3MF files', image: 'Select a thumbnail image', images: 'Images', dropDir: 'Where to save files dragged into the window' },

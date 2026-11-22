@@ -10,6 +10,7 @@ const LINK_URLS = {
   discord: 'https://discord.gg/MfkejWQZ4D',
   kickstarter: 'https://www.kickstarter.com/profile/3dhexes/created',
   kofi: 'https://ko-fi.com/3dhexes',
+  repo: 'https://github.com/3DHexes/3mf-purifier',
 };
 // Osadzona pomoc korzysta z API okna głównego; osobne okno ma własne połączenie z Neutralino.
 let neuReady = null;
@@ -33,6 +34,7 @@ const LINKS = [
   ['discord', 'Discord', 'discord.gg/MfkejWQZ4D'],
   ['kickstarter', 'Kickstarter', 'kickstarter.com/profile/3dhexes'],
   ['kofi', 'Ko-fi', 'ko-fi.com/3dhexes'],
+  ['repo', 'GitHub', 'github.com/3DHexes/3mf-purifier'],
 ];
 
 function render(lang) {
@@ -44,7 +46,7 @@ function render(lang) {
   if (VERSION) { $('hVer').hidden = false; $('hVer').textContent = `${h.version} ${VERSION}`; }
   $('toc').innerHTML = h.sections.map(([id, title]) => `<li><a href="#${id}" data-id="${id}">${title}</a></li>`).join('');
   $('body').innerHTML = h.sections.map(([id, title, html]) => `<section id="${id}"><h2>${title}</h2>${html}</section>`).join('') +
-    `<footer class="help-foot"><img src="logo.png" alt=""><div><p>${h.footer}${VERSION ? ` ${h.version} ${VERSION}.` : ''}</p><div class="c-links">` +
+    `<footer class="help-foot"><img src="logo.png" alt=""><div><p>${h.footer}${VERSION ? ` ${h.version} ${VERSION}.` : ''}</p><p class="help-lic">${h.license}</p><div class="c-links">` +
     LINKS.map(([k, label, url]) => `<button class="c-link" data-link="${k}" title="${url}">${label}</button>`).join('') + '</div></div></footer>';
   document.querySelectorAll('[data-link]').forEach((b) => b.addEventListener('click', () => api.openLink(b.dataset.link)));
   document.querySelectorAll('#toc a').forEach((a) => a.addEventListener('click', (e) => {

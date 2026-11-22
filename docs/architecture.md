@@ -75,7 +75,7 @@ three.js r187, WebGL. Orbit / pan / zoom, wireframe toggle, reset view, Source /
 
 ### 4.1 Stack
 - **Neutralino.js 6.10.0** (native binary) + client library 6.5.0, built with neu CLI 11.8.0. On Windows the UI runs in **Microsoft Edge WebView2** (part of Windows 11, installed on current Windows 10).
-- Resources (`www/`) are embedded into the exe (`neu build --embed-resources`). neu also patches exe icon and version info (FileVersion/ProductVersion 1.0.0, CompanyName 3DHexes).
+- Resources (`www/`) are embedded into the exe (`neu build --embed-resources`). neu also patches exe icon and version info (FileVersion/ProductVersion 1.0.1, CompanyName 3DHexes).
 - No server-side component, no network access except opening links in the browser.
 - Vendored JS libraries: three.js r187 (+ OrbitControls), fflate 0.8.3 (ZIP). Fonts: Ubuntu Sans (woff2). Licenses in `THIRD-PARTY-LICENSES.txt`.
 - Plain ES modules, no bundler, no framework.
@@ -162,7 +162,7 @@ Same parser idea as Universal but builds typed arrays for three.js, sorted into 
 
 1. Edit `app/www/…`, set `version` in `neutralino.config.json`.
 2. `npx neu build --embed-resources` in `app/` → `dist/3mf-purifier/3mf-purifier-win_x64.exe`.
-3. Package: rename to `3MF Purifier.exe`, add `README.txt` (EN), `CZYTAJ.txt` (PL), `THIRD-PARTY-LICENSES.txt`, zip as `3MF-Purifier-1.0-windows-x64.zip`.
+3. Package: rename to `3MF Purifier.exe`, add `README.txt` (EN), `CZYTAJ.txt` (PL), `LICENSE.txt`, `NOTICE.txt`, `THIRD-PARTY-LICENSES.txt`, zip as `3MF-Purifier-1.0.1-windows-x64.zip`. The package texts (`README.txt`, `CZYTAJ.txt`, and for Linux `install.sh` / `uninstall.sh`) are kept in `packaging/`.
 - The exe is **not code-signed** yet; SmartScreen shows "Windows protected your PC" on first run (README and help explain "More info → Run anyway"). A Certum Open Source Code Signing certificate, which requires public source, is planned.
 
 ---

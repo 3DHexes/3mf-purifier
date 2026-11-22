@@ -33,8 +33,8 @@ Get the latest version from the [Releases page](../../releases/latest).
 
 | System | File | How to run |
 |---|---|---|
-| Windows 10 / 11 (64-bit) | `3MF-Purifier-1.0-windows-x64.zip` | Unzip anywhere and start `3MF Purifier.exe`. Nothing gets installed. |
-| Linux x64 / arm64 | `3MF-Purifier-1.0-linux-*.tar.gz` | Unpack and run `./install.sh` to add it to the app menu, or start `./3mf-purifier` directly. Needs WebKitGTK 4.1. |
+| Windows 10 / 11 (64-bit) | `3MF-Purifier-1.0.1-windows-x64.zip` | Unzip anywhere and start `3MF Purifier.exe`. Nothing gets installed. |
+| Linux x64 / arm64 | `3MF-Purifier-1.0.1-linux-*.tar.gz` | Unpack and run `./install.sh` to add it to the app menu, or start `./3mf-purifier` directly. Needs WebKitGTK 4.1. |
 
 The Windows exe is not code-signed yet, so SmartScreen may show "Windows protected your PC" on the first start. Click **More info**, then **Run anyway**.
 

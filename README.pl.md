@@ -27,8 +27,8 @@ Najnowsza wersja jest na stronie [Releases](../../releases/latest).
 
 | System | Plik | Jak uruchomić |
 |---|---|---|
-| Windows 10 / 11 (64-bit) | `3MF-Purifier-1.0-windows-x64.zip` | Rozpakuj gdziekolwiek i uruchom `3MF Purifier.exe`. Nic się nie instaluje. |
-| Linux x64 / arm64 | `3MF-Purifier-1.0-linux-*.tar.gz` | Rozpakuj i uruchom `./install.sh`, żeby dodać program do menu, albo od razu `./3mf-purifier`. Wymaga WebKitGTK 4.1. |
+| Windows 10 / 11 (64-bit) | `3MF-Purifier-1.0.1-windows-x64.zip` | Rozpakuj gdziekolwiek i uruchom `3MF Purifier.exe`. Nic się nie instaluje. |
+| Linux x64 / arm64 | `3MF-Purifier-1.0.1-linux-*.tar.gz` | Rozpakuj i uruchom `./install.sh`, żeby dodać program do menu, albo od razu `./3mf-purifier`. Wymaga WebKitGTK 4.1. |
 
 Plik exe nie ma jeszcze podpisu cyfrowego, więc przy pierwszym uruchomieniu Windows może pokazać „System Windows ochronił ten komputer”. Kliknij **Więcej informacji**, a potem **Uruchom mimo to**.
 

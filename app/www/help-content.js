@@ -52,7 +52,8 @@ const en = {
     ['kept', 'What stays', `
 <ul>
 <li>the geometry</li>
-<li>object and part names, modifiers and negative parts (not in Universal)</li>
+<li>object and part names</li>
+<li>modifiers and negative parts (not in Universal)</li>
 <li>extruder assignment and color painting</li>
 <li>plate layout and plate previews</li>
 <li>the model title, designer, license and copyright</li>
@@ -85,6 +86,7 @@ const en = {
   ],
   footer: '3MF Purifier is made by 3DHexes: Storytelling Printable Scenery.',
   version: 'Version',
+  license: '© 2026 Przemysław Słowiński (3DHexes). Free software under the GNU GPL v3.0, without any warranty. The license and source code are on GitHub.',
   os: {
     win: {
       runtime: `<li>The app uses Microsoft Edge WebView2, which comes with Windows 11 and up-to-date Windows 10. If the window stays empty, install the WebView2 Runtime from Microsoft's website.</li>`,
@@ -109,11 +111,11 @@ const pl = {
 <p>3MF Purifier robi kopię pliku bez tych ustawień. Oryginalny plik zostaje nietknięty. Program potrafi też zamienić projekt w zwykły 3MF, który PrusaSlicer, Cura i inne slicery otwierają bez błędów.</p>`],
     ['start', 'Szybki start', `
 <ol>
-<li>Dodaj pliki. Przeciągnij pliki .3mf albo cały folder do okna albo użyj przycisków ${ui('Pliki')} i ${ui('Folder')}.{{dropExe}}</li>
+<li>Dodaj pliki. Przeciągnij pliki .3mf albo cały folder do okna lub użyj przycisków ${ui('Pliki')} i ${ui('Folder')}.{{dropExe}}</li>
 <li>Wybierz tryb przyciskami na górze: ${ui('Bez filamentów')}, ${ui('Z filamentami')} albo ${ui('Uniwersalny')}.</li>
 <li>Zajrzyj do panelu po prawej. Pokazuje, co zostanie usunięte z zaznaczonego pliku.</li>
 <li>Jeśli chcesz, ustaw własną miniaturę, autora i licencję.</li>
-<li>Kliknij ${ui('Wyczyść pliki')}. Po zakończeniu ${ui('Pokaż w folderze')} otwiera wynik. Znak ⚠ przy "gotowe" oznacza, że plik zapisano z ostrzeżeniem; jego treść jest w panelu po prawej.</li>
+<li>Kliknij ${ui('Wyczyść pliki')}. Po zakończeniu ${ui('Pokaż w folderze')} otwiera wynik. Znak ⚠ przy „gotowe” oznacza, że plik zapisano z ostrzeżeniem; jego treść jest w panelu po prawej.</li>
 </ol>
 <p>Plus na pustym podglądzie też otwiera wybór plików. Krzyżyk w wierszu usuwa plik z listy, a ${ui('Wyczyść listę')} usuwa wszystkie. Pliki na dysku zostają na miejscu.</p>
 <p>Każdy wynik trafia do folderu <code>Cleaned_[nazwa modelu]</code> obok oryginału. Z <code>Kafel.3mf</code> powstaje <code>Cleaned_Kafel{{sep}}Kafel.3mf</code>, a tryb uniwersalny dokłada w tym samym folderze <code>Kafel_universal.3mf</code>.</p>
@@ -135,19 +137,20 @@ const pl = {
 <ul>
 <li>profil drukarki, procesu i filamentów (<code>project_settings.config</code>)</li>
 <li>presety użytkownika dołączone do projektu</li>
-<li>G-code i dane z cięcia, np. informacje o płytach i statystyki</li>
+<li>G-code i dane z cięcia, np. informacje o cięciu i statystyki</li>
 <li>zmiany koloru i pauzy ustawione na konkretnej wysokości</li>
 <li>zmienna wysokość warstwy</li>
 <li>profil PrusaSlicera</li>
 <li>ustawienia przypisane do jednego obiektu lub części, np. więcej ścian albo gęstsze wypełnienie w jednym obiekcie</li>
-<li>pełne ścieżki plików źródłowych, jeśli slicer je zapisał; zostaje sama nazwa pliku, więc nazwa twojego konta i folderów nie idzie razem z plikiem</li>
+<li>pełne ścieżki plików źródłowych, jeśli slicer je zapisał; zostaje sama nazwa pliku, więc nazwa twojego konta i nazwy folderów nie trafiają do pliku</li>
 <li>dane profilu druku z MakerWorld: tytuł profilu, okładka, nazwa i ID użytkownika</li>
 </ul>
 <p>Jeśli plik ma modyfikatory, które mają działać u klienta, włącz ${ui('Zachowaj ustawienia per obiekt')}. Modyfikator bez swoich ustawień nic nie zmienia.</p>`],
     ['kept', 'Co zostaje', `
 <ul>
 <li>geometria</li>
-<li>nazwy obiektów i części, modyfikatory i części ujemne (poza trybem uniwersalnym)</li>
+<li>nazwy obiektów i części</li>
+<li>modyfikatory i części ujemne (poza trybem uniwersalnym)</li>
 <li>przypisanie extruderów i malowanie kolorem</li>
 <li>układ na płycie i podglądy płyt</li>
 <li>tytuł modelu, autor, licencja i prawa autorskie</li>
@@ -180,6 +183,7 @@ const pl = {
   ],
   footer: '3MF Purifier to aplikacja od 3DHexes: Storytelling Printable Scenery.',
   version: 'Wersja',
+  license: '© 2026 Przemysław Słowiński (3DHexes). Wolne oprogramowanie na licencji GNU GPL v3.0, bez żadnej gwarancji. Licencja i kod źródłowy są na GitHubie.',
   os: {
     win: {
       runtime: `<li>Aplikacja korzysta z Microsoft Edge WebView2, który jest w Windows 11 i w aktualnym Windows 10. Jeśli okno zostaje puste, zainstaluj WebView2 Runtime ze strony Microsoftu.</li>`,
@@ -242,7 +246,8 @@ const de = {
     ['kept', 'Was bleibt', `
 <ul>
 <li>die Geometrie</li>
-<li>Namen von Objekten und Teilen, Modifier und negative Teile (nicht im Modus Universal)</li>
+<li>Namen von Objekten und Teilen</li>
+<li>Modifier und negative Teile (nicht im Modus Universal)</li>
 <li>Extruder-Zuordnung und Farbbemalung</li>
 <li>Plattenlayout und Plattenvorschauen</li>
 <li>Titel, Autor, Lizenz und Copyright des Modells</li>
@@ -275,6 +280,7 @@ const de = {
   ],
   footer: '3MF Purifier stammt von 3DHexes: Storytelling Printable Scenery.',
   version: 'Version',
+  license: '© 2026 Przemysław Słowiński (3DHexes). Freie Software unter der GNU GPL v3.0, ohne jede Gewährleistung. Lizenz und Quellcode liegen auf GitHub.',
   os: {
     win: {
       runtime: `<li>Das Programm nutzt Microsoft Edge WebView2, das in Windows 11 und aktuellem Windows 10 enthalten ist. Bleibt das Fenster leer, installiere die WebView2 Runtime von der Microsoft-Website.</li>`,
@@ -337,7 +343,8 @@ const fr = {
     ['kept', 'Ce qui reste', `
 <ul>
 <li>la géométrie</li>
-<li>les noms des objets et pièces, les modificateurs et pièces négatives (sauf en mode Universel)</li>
+<li>les noms des objets et pièces</li>
+<li>les modificateurs et pièces négatives (sauf en mode Universel)</li>
 <li>l’attribution des extrudeurs et la peinture couleur</li>
 <li>la disposition des plateaux et leurs aperçus</li>
 <li>le titre, l’auteur, la licence et le copyright du modèle</li>
@@ -370,6 +377,7 @@ const fr = {
   ],
   footer: '3MF Purifier est une application de 3DHexes : Storytelling Printable Scenery.',
   version: 'Version',
+  license: '© 2026 Przemysław Słowiński (3DHexes). Logiciel libre sous licence GNU GPL v3.0, sans aucune garantie. La licence et le code source sont sur GitHub.',
   os: {
     win: {
       runtime: `<li>Le programme utilise Microsoft Edge WebView2, inclus dans Windows 11 et dans Windows 10 à jour. Si la fenêtre reste vide, installez WebView2 Runtime depuis le site de Microsoft.</li>`,
@@ -432,7 +440,8 @@ const es = {
     ['kept', 'Qué se conserva', `
 <ul>
 <li>la geometría</li>
-<li>los nombres de objetos y piezas, los modificadores y las piezas negativas (no en Universal)</li>
+<li>los nombres de objetos y piezas</li>
+<li>los modificadores y las piezas negativas (no en Universal)</li>
 <li>la asignación de extrusores y la pintura de color</li>
 <li>la distribución de las placas y sus vistas previas</li>
 <li>el título, el autor, la licencia y el copyright del modelo</li>
@@ -465,6 +474,7 @@ const es = {
   ],
   footer: '3MF Purifier es una aplicación de 3DHexes: Storytelling Printable Scenery.',
   version: 'Versión',
+  license: '© 2026 Przemysław Słowiński (3DHexes). Software libre bajo la licencia GNU GPL v3.0, sin ninguna garantía. La licencia y el código fuente están en GitHub.',
   os: {
     win: {
       runtime: `<li>El programa usa Microsoft Edge WebView2, incluido en Windows 11 y en Windows 10 actualizado. Si la ventana queda vacía, instala WebView2 Runtime desde la web de Microsoft.</li>`,
