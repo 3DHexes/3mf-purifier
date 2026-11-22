@@ -6,7 +6,7 @@
 
 <p align="center">
   Strip printer, process and filament settings out of 3MF files before you share them.<br>
-  Free, offline, one small exe. By <a href="https://www.myminifactory.com/profile/3DHexes">3DHexes</a>.
+  Free, offline, one small program (about 5 MB). By <a href="https://www.myminifactory.com/profile/3DHexes">3DHexes</a>.
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@ A project saved in OrcaSlicer, Snapmaker Orca or Bambu Studio is a 3MF file that
 
 I sell printable terrain and ran into this with every release, so I wrote a tool that makes a clean copy of the file. The model, its parts, the color painting and the plate layout stay. Everything that ties the file to my printer goes. The original file is never changed.
 
-It works the other way round too. If you download a 3MF from MakerWorld or another store and it won't open in your slicer, or drags someone else's printer along, run it through the app.
+It also helps on the customer side. If you download a 3MF from MakerWorld or another site and it won't open in your slicer, or drags someone else's printer along, run it through the app.
 
 ## Download
 
@@ -52,7 +52,7 @@ The Windows exe is not code-signed yet, so SmartScreen may show "Windows protect
 
 ## What else it does
 
-- Batch work: drop a whole folder, and every result lands in a `Cleaned_[model name]` folder next to its source.
+- Batch work: add a whole folder with the Folder button, and every result lands in a `Cleaned_[model name]` folder next to its source. Files dragged into the window go to one output folder instead, shown under the Clean button.
 - Privacy cleanup: full paths of the original STL files (which can contain your Windows user name) are cut to the file name, and MakerWorld print-profile data (profile author name and ID) is removed. The model's designer and license stay as they were.
 - Author and license fields: optionally write your name, license and copyright into every file. OrcaSlicer and Bambu Studio show them in the project info.
 - Custom cover thumbnail: pick an image, or render one straight from the 3D preview. Plate previews are not touched.
@@ -121,6 +121,6 @@ Found a file that doesn't come out right? [Open an issue](../../issues/new/choos
 
 3MF Purifier is free software, released under the [GNU General Public License v3.0](LICENSE) with a few additional terms listed in [NOTICE](NOTICE).
 
-In practice: anyone can use it for free, for any purpose, including cleaning files they sell. You can share it and change it. If you distribute a changed version, you have to publish its source code under the same license, give it a different name and credit "3MF Purifier by 3DHexes".
+In practice: anyone can use it for free, for any purpose, including cleaning files they sell. You can share it and change it. If you distribute a changed version, you have to publish its source code under the same license, give it a different name and show the line "Based on 3MF Purifier by 3DHexes".
 
 The 3DHexes name and logo, the app icon and the screenshots (they show 3DHexes models) are not covered by the GPL. Bundled third-party components keep their own licenses, listed in [THIRD-PARTY-LICENSES.txt](THIRD-PARTY-LICENSES.txt).
