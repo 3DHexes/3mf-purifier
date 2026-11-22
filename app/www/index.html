@@ -1,0 +1,151 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only. Copyright (C) 2026 Przemysław Słowiński (3DHexes). Additional terms apply, see NOTICE. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' ws://127.0.0.1:* ws://localhost:*; worker-src 'self' blob:">
+<title>3MF Purifier</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="titlebar">
+  <div class="brand">
+    <img class="logo" src="logo.png" alt="">
+    <span class="name">3MF Purifier</span><span class="by">by 3DHexes</span>
+    <button class="help-btn" id="helpBtn" data-i18n-title="help.title"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="16.6" r="1" fill="currentColor"/></svg><span data-i18n="help.btn"></span></button>
+  </div>
+  <div class="modes" role="radiogroup" data-i18n-aria="mode.aria">
+    <button class="mode" data-mode="clean" role="radio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 7.5 12 12l8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span><b data-i18n="mode.clean"></b><small data-i18n="mode.clean.sub"></small></span>
+    </button>
+    <button class="mode" data-mode="filaments" role="radio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="4.2" fill="#c9a46a"/><circle cx="16" cy="9" r="4.2" fill="#7b2a24"/><circle cx="12" cy="15.5" r="4.2" fill="#5f7a48"/></svg>
+      <span><b data-i18n="mode.fil"></b><small data-i18n="mode.fil.sub"></small></span>
+    </button>
+    <button class="mode" data-mode="universal" role="radio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.2 12.4l2.6 2.6 5-5.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><b data-i18n="mode.uni"></b><small data-i18n="mode.uni.sub"></small></span>
+    </button>
+  </div>
+  <div class="tb-fill">
+    <div class="lang" role="radiogroup" data-i18n-aria="lang.aria">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5s1.2-6.1 3.8-8.5z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      <button data-lang="en" role="radio" title="English">EN</button><button data-lang="pl" role="radio" title="Polski">PL</button><button data-lang="de" role="radio" title="Deutsch">DE</button><button data-lang="fr" role="radio" title="Français">FR</button><button data-lang="es" role="radio" title="Español">ES</button>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="files panel">
+    <div class="panel-head">
+      <h2><span data-i18n="files.title"></span> <span class="count" id="count"></span></h2>
+      <div class="head-actions">
+        <button class="btn ghost sm" id="addFiles" data-i18n-title="btn.files.title">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i18n="btn.files"></span></button>
+        <button class="btn ghost sm" id="addFolder" data-i18n-title="btn.folder.title">
+          <svg viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span data-i18n="btn.folder"></span></button>
+      </div>
+    </div>
+    <ul class="file-list" id="fileList"></ul>
+    <div class="files-empty" id="filesEmpty">
+      <p data-i18n-html="files.empty1"></p>
+      <p class="muted" data-i18n="files.empty2"></p>
+    </div>
+    <div class="files-foot"><button class="link" id="clearList" data-i18n="files.clear"></button><span class="muted" id="listSummary"></span></div>
+    <div class="credits">
+      <div class="c-head"><img src="logo.png" alt=""><div><b>3DHexes</b><span data-i18n="credits.sub"></span></div></div>
+      <div class="c-links">
+        <button class="c-link" data-link="mmf" title="myminifactory.com/profile/3DHexes"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3zM9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>MyMiniFactory</button>
+        <button class="c-link" data-link="discord" title="discord.gg/MfkejWQZ4D"><svg viewBox="0 0 24 24"><path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H11l-4 3.5v-3.5h-.5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="9.5" cy="10.5" r="1.1" fill="currentColor"/><circle cx="14.5" cy="10.5" r="1.1" fill="currentColor"/></svg>Discord</button>
+        <button class="c-link" data-link="kickstarter" title="kickstarter.com/profile/3dhexes"><svg viewBox="0 0 24 24"><path d="M12 3.5c3 2 4.5 5 4.5 8.5l-1.8 3.5H9.3L7.5 12c0-3.5 1.5-6.5 4.5-8.5zM9.3 15.5 7 19.5l3-1M14.7 15.5l2.3 4-3-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="12" cy="10" r="1.6" fill="currentColor"/></svg>Kickstarter</button>
+      </div>
+      <button class="c-link kofi" data-link="kofi" title="ko-fi.com/3dhexes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9h11.5v5.5a4 4 0 0 1-4 4h-3.5a4 4 0 0 1-4-4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M16 10.5h1.5a2.3 2.3 0 0 1 0 4.6H16" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.3 15.6s-2.4-1.4-2.4-2.9a1.2 1.2 0 0 1 2.4-.4 1.2 1.2 0 0 1 2.4.4c0 1.5-2.4 2.9-2.4 2.9z" fill="currentColor"/><path d="M8 4.5c0 1-.8 1.2-.8 2.2M11 4.5c0 1-.8 1.2-.8 2.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span data-i18n="credits.kofi"></span></button>
+    </div>
+  </aside>
+
+  <section class="viewer" id="viewer">
+    <canvas id="view"></canvas>
+    <div class="v-top">
+      <div class="v-title">
+        <div class="v-name" id="vName"></div>
+        <div class="chips" id="vStats"></div>
+      </div>
+      <div class="v-tools">
+        <div class="seg" id="srcToggle" hidden>
+          <button data-src="src" class="on" data-i18n="view.src"></button><button data-src="out" data-i18n="view.out"></button>
+        </div>
+        <button class="icon-btn" id="wire" data-i18n-title="view.wire">
+          <svg viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9zM4 7.5 20 16.5M20 7.5 4 16.5M12 3v18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+        <button class="icon-btn" id="snapThumb" data-i18n-title="view.snap" hidden>
+          <svg viewBox="0 0 24 24"><path d="M4.5 8.5a2 2 0 0 1 2-2h2l1.4-1.8h4.2L15.5 6.5h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button class="icon-btn" id="resetView" data-i18n-title="view.reset">
+          <svg viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="v-loading" id="loading" hidden><div class="spinner"></div><span id="loadingText" data-i18n="view.loading"></span></div>
+    <div class="v-empty" id="viewEmpty">
+      <button type="button" class="v-add" id="emptyAdd" data-i18n-title="btn.files.title" data-i18n-aria="btn.files.title"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 54 18.5v27L32 58 10 45.5v-27z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-dasharray="4 4"/><path d="M32 22v20M22 32h20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+      <h3 data-i18n="view.empty.title"></h3>
+      <p data-i18n-html="view.empty.text"></p>
+    </div>
+    <div class="v-error" id="viewError" hidden></div>
+  </section>
+
+  <aside class="details panel">
+    <div class="details-body" id="details"></div>
+    <div class="run">
+      <div class="opts">
+        <label class="switch" id="keepObjRow">
+          <input type="checkbox" id="keepObj">
+          <span class="track"><span class="thumb"></span></span>
+          <span class="lbl"><span data-i18n="keep.label"></span><small data-i18n="keep.hint"></small></span>
+        </label>
+        <label class="switch" id="alsoUniRow">
+          <input type="checkbox" id="alsoUni">
+          <span class="track"><span class="thumb"></span></span>
+          <span class="lbl"><span data-i18n="alsoUni.label"></span><small data-i18n="alsoUni.hint"></small></span>
+        </label>
+        <label class="switch" id="splitRow" hidden>
+          <input type="checkbox" id="splitPlates">
+          <span class="track"><span class="thumb"></span></span>
+          <span class="lbl"><span data-i18n="split.label"></span><small data-i18n="split.hint"></small></span>
+        </label>
+        <div class="switch author-row">
+          <label class="author-toggle">
+            <input type="checkbox" id="authorOn">
+            <span class="track"><span class="thumb"></span></span>
+          </label>
+          <span class="lbl"><span data-i18n="author.label"></span><small id="authorSum"></small></span>
+          <button class="btn sm" id="authorEdit" data-i18n="author.edit"></button>
+        </div>
+      </div>
+      <button class="btn primary big" id="run" disabled></button>
+      <div class="drop-dir" id="dropDir" hidden></div>
+      <div class="progress" id="progress" hidden><div class="bar"></div></div>
+      <div class="run-note" id="runNote"></div>
+    </div>
+  </aside>
+</main>
+
+<div class="drop-overlay" id="dropOverlay"><div class="drop-card">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 54 18.5v27L32 58 10 45.5v-27z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 20v22m-9-9 9 9 9-9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span id="dropText"></span></div></div>
+<div class="toast" id="toast" hidden></div>
+<div class="modal" id="authorModal" hidden><form class="modal-card" id="authorForm">
+  <h3 data-i18n="author.title"></h3>
+  <p class="muted" data-i18n="author.intro"></p>
+  <label class="field"><span data-i18n="author.designer"></span><input id="aDesigner" maxlength="200" autocomplete="off"></label>
+  <label class="field"><span data-i18n="author.license"></span><input id="aLicense" maxlength="300" autocomplete="off" list="licenseList"></label>
+  <datalist id="licenseList"><option value="Personal use only"><option value="CC BY-NC 4.0"><option value="CC BY-NC-SA 4.0"><option value="CC BY 4.0"></datalist>
+  <label class="field"><span data-i18n="author.copyright"></span><input id="aCopyright" maxlength="300" autocomplete="off"></label>
+  <p class="muted small" data-i18n="author.note"></p>
+  <div class="modal-actions"><button type="button" class="btn" id="authorCancel" data-i18n="author.cancel"></button><button type="submit" class="btn primary" data-i18n="author.save"></button></div>
+</form></div>
+
+<script src="neutralino.js"></script>
+<script type="module" src="platform.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

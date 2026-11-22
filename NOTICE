@@ -1,0 +1,49 @@
+3MF Purifier
+Copyright (C) 2026 Przemysław Słowiński (3DHexes)
+https://github.com/3DHexes/3mf-purifier
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, version 3 of the License, together with the additional
+terms below.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details. The full text of the license is in the LICENSE file.
+
+
+ADDITIONAL TERMS UNDER SECTION 7 OF THE GNU GPL VERSION 3
+
+1. Attribution (section 7(b)). Every copy and every modified version must
+   keep the copyright notice above. A modified version must also show the
+   line "Based on 3MF Purifier by 3DHexes" with a link to
+   https://github.com/3DHexes/3mf-purifier in its Appropriate Legal Notices,
+   for example in an About or Help window that users can open.
+
+2. Modified versions (section 7(c)). A modified version must not be
+   presented as the original 3MF Purifier or as a release by 3DHexes. It
+   must use a different name and say that it has been changed.
+
+3. Names and logos (section 7(e)). This license does not grant any right to
+   use the names "3DHexes" or "3MF Purifier", the 3DHexes logo or the app
+   icon, except to say truthfully where the program comes from.
+
+
+ARTWORK NOT COVERED BY THE GPL
+
+The following files are Copyright (C) 3DHexes, all rights reserved, and are
+not licensed under the GNU GPL:
+
+  app/www/icon.png
+  app/www/logo.png
+  docs/screenshots/*  (they show models made by 3DHexes)
+
+They may be redistributed only as part of unmodified copies of 3MF Purifier.
+A modified version must replace them with its own artwork.
+
+
+THIRD-PARTY COMPONENTS
+
+Bundled third-party code and fonts keep their own licenses. They are listed
+in THIRD-PARTY-LICENSES.txt.

@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only. Copyright (C) 2026 Przemysław Słowiński (3DHexes). Additional terms apply, see NOTICE. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws://127.0.0.1:* ws://localhost:*">
+<title>3MF Purifier help</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="help.css">
+</head>
+<body class="help">
+<header class="titlebar help-bar">
+  <div class="brand"><img class="logo" src="logo.png" alt=""><span class="name" id="hTitle">3MF Purifier</span></div>
+  <span class="ver-pill" id="hVer" hidden></span>
+</header>
+<div class="help-layout">
+  <nav class="help-toc"><div class="toc-title" id="tocTitle"></div><ul id="toc"></ul></nav>
+  <main class="help-body" id="body"></main>
+</div>
+<script src="neutralino.js"></script>
+<script type="module" src="help.js"></script>
+</body>
+</html>

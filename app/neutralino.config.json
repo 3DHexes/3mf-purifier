@@ -1,0 +1,77 @@
+{
+  "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
+  "applicationId": "com.3dhexes.purifier",
+  "applicationName": "3MF Purifier",
+  "author": "3DHexes",
+  "description": "3MF Purifier",
+  "copyright": "© 2026 3DHexes",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "port": 0,
+  "documentRoot": "/www/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "tokenSecurity": "one-time",
+  "dataLocation": "system",
+  "storageLocation": "system",
+  "logging": {
+    "enabled": false,
+    "writeToLogFile": false
+  },
+  "nativeAllowList": [
+    "app.exit",
+    "os.getPath",
+    "os.showOpenDialog",
+    "os.showFolderDialog",
+    "os.execCommand",
+    "os.open",
+    "filesystem.readBinaryFile",
+    "filesystem.writeBinaryFile",
+    "filesystem.appendBinaryFile",
+    "filesystem.getStats",
+    "filesystem.createDirectory",
+    "filesystem.readDirectory",
+    "filesystem.remove",
+    "filesystem.move",
+    "server.mount",
+    "storage.getData",
+    "storage.setData",
+    "window.create",
+    "events.on",
+    "debug.log"
+  ],
+  "globalVariables": {},
+  "modes": {
+    "window": {
+      "title": "3MF Purifier",
+      "width": 1320,
+      "height": 840,
+      "minWidth": 1040,
+      "minHeight": 640,
+      "center": true,
+      "fullScreen": false,
+      "alwaysOnTop": false,
+      "icon": "/www/icon.png",
+      "enableInspector": false,
+      "borderless": false,
+      "maximize": false,
+      "hidden": false,
+      "resizable": true,
+      "exitProcessOnClose": true,
+      "useSavedState": true,
+      "emitDropEvents": false
+    },
+    "browser": {
+      "nativeBlockList": []
+    }
+  },
+  "cli": {
+    "binaryName": "3mf-purifier",
+    "resourcesPath": "/www/",
+    "extensionsPath": "/extensions/",
+    "clientLibrary": "/www/neutralino.js",
+    "binaryVersion": "6.10.0",
+    "clientVersion": "6.5.0"
+  }
+}
